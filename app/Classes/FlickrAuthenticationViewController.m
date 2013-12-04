@@ -63,7 +63,7 @@
         [defaults setValue:parsed[@"oauth_token_secret"] forKey:@"request_secret"];
         [defaults synchronize];
         
-        NSString *redirect = [NSString stringWithFormat:@"http://www.flickr.com/services/oauth/authorize?oauth_token=%@", parsed[@"oauth_token"]];
+        NSString *redirect = [NSString stringWithFormat:@"http://www.flickr.com/services/oauth/authorize?oauth_token=%@&perms=delete", parsed[@"oauth_token"]];
 
         dispatch_async(dispatch_get_main_queue(),^{
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:redirect]];
